@@ -1,0 +1,24 @@
+Package: nBootstrap
+Title: Nonparametric Bootstrap
+Version: 0.9.1
+Authors@R: 
+    person(given = "Ivan Jacob Agaloos",
+           family = "Pesigan",
+           role = c("aut", "cre"),
+           email = "i.j.a.pesigan@connect.um.edu.mo",
+           comment = c(ORCID = "0000-0003-4818-8420"))
+Description: A collection of functions
+    related to the nonparametric bootstrap.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 3.0.0)
+Suggests:
+    knitr,
+    rmarkdown,
+    covr,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1

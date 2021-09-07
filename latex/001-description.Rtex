@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{nBootstrap: Nonparametric Bootstrap}
+\author{Ivan Jacob Agaloos Pesigan}
+
+\begin{document}
+
+\maketitle
+
+<<echo=FALSE>>=
+root <- rprojroot::is_rstudio_project
+source(
+  root$find_file(
+    "latex",
+    "R_scripts",
+    "start.R"
+  )
+)
+@
+
+\section{Description}
+
+A collection of functions
+related to the nBootstrap test.
+
+\section{TODO}
+
+\begin{itemize}
+    \item Documentation
+    \item References
+    \item Examples
+    \item Tests
+    \item Parallel lapply application
+\end{itemize}
+
+\end{document}

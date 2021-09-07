@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Simulated Data - Matrix}
+\author{Ivan Jacob Agaloos Pesigan}
+
+\begin{document}
+
+\maketitle
+
+<<echo=FALSE>>=
+root <- rprojroot::is_rstudio_project
+source(
+  root$find_file(
+    "latex",
+    "R_scripts",
+    "start.R"
+  )
+)
+@
+
+<<>>=
+set.seed(42)
+n_i <- 100
+mu_i <- c(0, 0)
+k_i <- length(mu_i)
+sigmacap_i <- matrix(
+  data = c(
+    1.0,
+    0.5,
+    0.5,
+    1
+  ),
+  nrow = k_i,
+  ncol = k_i
+)
+diag(sigmacap_i) <- 1
+x_i <- matrix(
+  data = rnorm(
+    n = n_i * k_i
+  ),
+  nrow = n_i,
+  ncol = k_i
+) %*% (
+  chol(sigmacap_i)
+) + (
+  matrix(
+    data = 1,
+    nrow = n_i,
+    ncol = 1
+  ) %*% mu_i
+)
+colnames(x_i) <- c("y", "x")
+func_i <- colMeans
+bcap_i <- 100L
+thetahat_i <- func_i(x_i)
+@
+
+<<>>=
+xstar_i <- xstar_nb(x_i, bcap = bcap_i)
+xstar_i
+@
+
+Note that \texttt{thetahatstar\_nb}
+generates data and fits the model $B$ number of times.
+
+<<>>=
+thetahatstar_i <- thetahatstar_nb(x_i, func = func_i, bcap = bcap_i)
+thetahatstar_i
+@
+
+<<>>=
+jackknife_i <- jackknife(
+  x_i,
+  func = func_i
+)
+jackknife_i
+@
+
+<<>>=
+ci_pc(thetahatstar_i)
+ci_bc(thetahatstar_i, thetahat = thetahat_i)
+ci_bca(thetahatstar_i, thetahat = thetahat_i, jackknife = jackknife_i)
+@
+
+<<echo = FALSE>>=
+rm(
+  n_i,
+  mu_i,
+  k_i,
+  sigmacap_i,
+  x_i,
+  func_i,
+  bcap_i,
+  xstar_i,
+  thetahatstar_i,
+  jackknife_i
+)
+@
+
+\end{document}

@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{boot}
+\author{Ivan Jacob Agaloos Pesigan}
+
+\begin{document}
+
+\maketitle
+
+<<echo=FALSE>>=
+root <- rprojroot::is_rstudio_project
+source(
+  root$find_file(
+    "latex",
+    "R_scripts",
+    "start.R"
+  )
+)
+@
+
+<<>>=
+library(boot)
+tol_i <- 0.01
+n_i <- 1000
+bcap_i <- 5000L
+x_i <- rnorm(n_i)
+thetahat_i <- function(x_i, i) {
+  return(
+    mean(x_i[i])
+  )
+}
+obj_i <- boot(x_i, thetahat_i, R = bcap_i)
+answer_i_pc <- boot.ci(
+  obj_i,
+  type = "perc"
+)$percent[, 4:5]
+answer_i_bca <- boot.ci(
+  obj_i,
+  type = "bca"
+)$bca[, 4:5]
+answer_i_pc
+answer_i_bca
+thetahatstar_i <- thetahatstar_nb(
+  x = x_i,
+  func = mean,
+  bcap = bcap_i
+)
+jackknife_i <- jackknife(
+  x = x_i,
+  func = mean
+)
+result_i_pc <- as.vector(
+  ci_pc(
+    thetahatstar_i,
+    alpha = 0.05
+  )
+)
+result_i_bc <- as.vector(
+  ci_bc(
+    thetahatstar_i,
+    mean(x_i),
+    alpha = 0.05
+  )
+)
+result_i_bca <- as.vector(
+  ci_bca(
+    thetahatstar_i,
+    mean(x_i),
+    jackknife = jackknife_i,
+    alpha = 0.05
+  )
+)
+all(abs(answer_i_pc - result_i_pc) <= tol_i)
+all(abs(answer_i_bca - result_i_bc) <= tol_i)
+all(abs(answer_i_bca - result_i_bca) <= tol_i)
+@
+
+<<echo = FALSE>>=
+rm(
+  tol_i,
+  n_i,
+  bcap_i,
+  x_i,
+  thetahat_i,
+  obj_i,
+  answer_i_pc,
+  answer_i_bca,
+  thetahatstar_i,
+  jackknife_i,
+  result_i_pc,
+  result_i_bc
+)
+@
+
+\end{document}

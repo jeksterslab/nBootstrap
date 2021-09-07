@@ -1,0 +1,13 @@
+destination: docs
+url: https://github.com/jeksterslab/nBootstrap/
+
+reference:
+- title: Package
+  contents:
+  - has_keyword("package")
+- title: Nonparametric Bootstrap Functions
+  contents:
+  - has_concept("Nonparametric Bootstrap Functions")
+- title: Multivariate Normal Distribution Functions
+  contents:
+  - has_concept("Multivariate Normal Distribution Functions")
