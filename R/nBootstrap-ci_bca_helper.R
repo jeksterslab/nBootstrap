@@ -90,13 +90,13 @@ ci_bca_helper <- function(x,
   }
   return(
     list(
-      x = x,
+      x = unname(x),
       probs = probs,
       bcap = bcap,
       k = k,
-      z0hat = z0hat,
+      z0hat = unname(z0hat),
       z1 = z1,
-      ahat = ahat
+      ahat = unname(ahat)
     )
   )
 }

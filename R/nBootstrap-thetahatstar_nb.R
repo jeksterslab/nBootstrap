@@ -1,4 +1,5 @@
-#' Generate Empirical Sampling Distribution using Nonparametric Bootstrap
+#' Generate Empirical Sampling Distribution
+#' Using Nonparametric Bootstrap
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
