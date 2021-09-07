@@ -2,7 +2,8 @@
 % Please edit documentation in R/nBootstrap-thetahatstar_nb.R
 \name{thetahatstar_nb}
 \alias{thetahatstar_nb}
-\title{Generate Empirical Sampling Distribution using Nonparametric Bootstrap}
+\title{Generate Empirical Sampling Distribution
+Using Nonparametric Bootstrap}
 \usage{
 thetahatstar_nb(x, func, ..., bcap = 5000L, seed = NULL)
 }
@@ -26,7 +27,8 @@ Returns a matrix if \code{func} returns a vector.
 Otherwise, it returns a list.
 }
 \description{
-Generate Empirical Sampling Distribution using Nonparametric Bootstrap
+Generate Empirical Sampling Distribution
+Using Nonparametric Bootstrap
 }
 \section{Dependencies}{
 \itemize{
