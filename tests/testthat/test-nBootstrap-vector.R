@@ -38,7 +38,7 @@ result_i_bca <- as.vector(
     alpha = 0.05
   )
 )
-testthat::test_that("pc", {
+testthat::test_that("test-nBootstrap-vector pc", {
   testthat::expect_true(
     all(
       abs(
@@ -47,7 +47,7 @@ testthat::test_that("pc", {
     )
   )
 })
-testthat::test_that("bc", {
+testthat::test_that("test-nBootstrap-vector bc", {
   testthat::expect_true(
     all(
       abs(
@@ -56,7 +56,7 @@ testthat::test_that("bc", {
     )
   )
 })
-testthat::test_that("bca", {
+testthat::test_that("test-nBootstrap-vector bca", {
   testthat::expect_true(
     all(
       abs(
@@ -99,7 +99,7 @@ result_i_bca <- as.vector(
     alpha = 0.05
   )
 )
-testthat::test_that("pc", {
+testthat::test_that("test-nBootstrap-vector pc", {
   testthat::expect_true(
     all(
       abs(
@@ -108,7 +108,7 @@ testthat::test_that("pc", {
     )
   )
 })
-testthat::test_that("bc", {
+testthat::test_that("test-nBootstrap-vector bc", {
   testthat::expect_true(
     all(
       abs(
@@ -117,7 +117,7 @@ testthat::test_that("bc", {
     )
   )
 })
-testthat::test_that("bca", {
+testthat::test_that("test-nBootstrap-vector bca", {
   testthat::expect_true(
     all(
       abs(

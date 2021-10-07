@@ -35,6 +35,11 @@ ci_bca <- function(x,
     thetahat = thetahat,
     alpha = alpha
   )
+  if (is.vector(x)) {
+    varnames <- NULL
+  } else {
+    varnames <- colnames(x)
+  }
   bca_probs <- lapply(
     X = seq_len(input$k),
     FUN = function(i) {
@@ -60,5 +65,9 @@ ci_bca <- function(x,
     args = output
   )
   colnames(output) <- paste0("ci_", input$probs * 100)
+  varnames <- colnames(x)
+  if (!is.null(varnames)) {
+    rownames(output) <- varnames
+  }
   return(output)
 }

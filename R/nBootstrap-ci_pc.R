@@ -30,6 +30,11 @@ ci_pc <- function(x,
     !any(alpha <= 0),
     !any(alpha > 1)
   )
+  if (is.vector(x)) {
+    varnames <- NULL
+  } else {
+    varnames <- colnames(x)
+  }
   lower <- 0.5 * alpha
   upper <- 1 - (lower)
   probs <- sort(
@@ -55,5 +60,8 @@ ci_pc <- function(x,
     args = output
   )
   colnames(output) <- paste0("ci_", probs * 100)
+  if (!is.null(varnames)) {
+    rownames(output) <- varnames
+  }
   return(output)
 }

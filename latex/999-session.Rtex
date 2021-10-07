@@ -1,5 +1,6 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
+
+\input{latex/preamble/preamble}
 
 \title{Session Info}
 \author{Ivan Jacob Agaloos Pesigan}

@@ -20,6 +20,7 @@ x_i <- rmvn_chol(
   sigmacap = sigmacap_i,
   data_frame = TRUE
 )
+colnames(x_i) <- c("x", "y")
 func_i <- colMeans
 thetahat_i <- func_i(x_i)
 thetahatstar_i <- thetahatstar_nb(
@@ -52,7 +53,7 @@ result_i_bca <- as.vector(
     alpha = 0.05
   )
 )
-testthat::test_that("bc", {
+testthat::test_that("test-nBootstrap-matrix bc", {
   testthat::expect_true(
     all(
       abs(
@@ -61,7 +62,7 @@ testthat::test_that("bc", {
     )
   )
 })
-testthat::test_that("bca", {
+testthat::test_that("test-nBootstrap-matrix bca", {
   testthat::expect_true(
     all(
       abs(
@@ -104,7 +105,7 @@ result_i_bca <- as.vector(
     alpha = 0.05
   )
 )
-testthat::test_that("bc", {
+testthat::test_that("test-nBootstrap-matrix bc", {
   testthat::expect_true(
     all(
       abs(
@@ -113,7 +114,7 @@ testthat::test_that("bc", {
     )
   )
 })
-testthat::test_that("bca", {
+testthat::test_that("test-nBootstrap-matrix bca", {
   testthat::expect_true(
     all(
       abs(

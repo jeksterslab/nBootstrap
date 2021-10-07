@@ -1,5 +1,6 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
+
+\input{latex/preamble/preamble}
 
 \title{nBootstrap: Nonparametric Bootstrap}
 \author{Ivan Jacob Agaloos Pesigan}
@@ -22,7 +23,7 @@ source(
 \section{Description}
 
 A collection of functions
-related to the nBootstrap test.
+related to the nonparametric bootstrap.
 
 \section{TODO}
 

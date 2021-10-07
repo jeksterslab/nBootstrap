@@ -187,7 +187,7 @@ returns a <code>matrix</code>.</p></td>
     <p>Ivan Jacob Agaloos Pesigan</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>100</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>
 <span class='va'>sigmacap</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>
   data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
     <span class='fl'>1</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>
@@ -195,17 +195,17 @@ returns a <code>matrix</code>.</p></td>
   nrow <span class='op'>=</span> <span class='fl'>2</span>
 <span class='op'>)</span>
 
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>rmvn_chol</span><span class='op'>(</span>
-  n <span class='op'>=</span> <span class='fl'>100</span>,
+<span class='fu'>rmvn_chol</span><span class='op'>(</span>
+  n <span class='op'>=</span> <span class='fl'>5</span>,
   mu <span class='op'>=</span> <span class='va'>mu</span>,
   sigmacap <span class='op'>=</span> <span class='va'>sigmacap</span>
 <span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 99.90940 99.95107</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cov</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;           [,1]      [,2]
-#&gt; [1,] 0.8285940 0.5237835
-#&gt; [2,] 0.5237835 1.1106317</div></pre>
+</div><div class='output co'>#&gt;            [,1]        [,2]
+#&gt; [1,] -0.6488536 -0.58922594
+#&gt; [2,]  0.1484591  0.27640339
+#&gt; [3,] -0.9838569  0.18055054
+#&gt; [4,] -1.6487213  0.01352717
+#&gt; [5,] -1.4569220  0.06625359</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

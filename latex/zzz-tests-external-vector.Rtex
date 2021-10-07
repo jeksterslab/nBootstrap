@@ -1,5 +1,6 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
+
+\input{latex/preamble/preamble}
 
 \title{boot}
 \author{Ivan Jacob Agaloos Pesigan}

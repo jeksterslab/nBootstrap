@@ -32,6 +32,11 @@ ci_bc <- function(x,
     thetahat = thetahat,
     alpha = alpha
   )
+  if (is.vector(x)) {
+    varnames <- NULL
+  } else {
+    varnames <- colnames(x)
+  }
   bc_probs <- lapply(
     X = input$z0hat,
     FUN = function(x) {
@@ -55,5 +60,8 @@ ci_bc <- function(x,
     args = output
   )
   colnames(output) <- paste0("ci_", input$probs * 100)
+  if (!is.null(varnames)) {
+    rownames(output) <- varnames
+  }
   return(output)
 }
