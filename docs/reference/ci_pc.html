@@ -174,13 +174,15 @@ Significance level/s.</p></td>
     <p>Ivan Jacob Agaloos Pesigan</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
-<span class='va'>func</span> <span class='op'>&lt;-</span> <span class='va'>median</span>
-<span class='va'>thetahatstar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='thetahatstar_nb.html'>thetahatstar_nb</a></span><span class='op'>(</span><span class='va'>x</span>, func <span class='op'>=</span> <span class='va'>func</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>foo</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>thetahatstar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='fl'>1000</span><span class='op'>)</span>, FUN <span class='op'>=</span> <span class='va'>foo</span><span class='op'>)</span>
+<span class='va'>thetahatstar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span><span class='op'>(</span>what <span class='op'>=</span> <span class='st'>"rbind"</span>, args <span class='op'>=</span> <span class='va'>thetahatstar</span><span class='op'>)</span>
 
 <span class='fu'>ci_pc</span><span class='op'>(</span><span class='va'>thetahatstar</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         ci_0.05     ci_0.5    ci_2.5   ci_97.5  ci_99.5 ci_99.95
-#&gt; [1,] -0.4686903 -0.4040453 -0.271305 0.4017432 0.539812 0.575244</div></pre>
+</div><div class='output co'>#&gt;         ci_0.05    ci_0.5     ci_2.5   ci_97.5   ci_99.5  ci_99.95
+#&gt; [1,] -0.4225334 -0.343327 -0.2480332 0.2576773 0.3395891 0.3821427</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

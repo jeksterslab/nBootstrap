@@ -1,4 +1,4 @@
-## ---- test-nBootstrap-matrix
+## ---- test-nBootstrap-data.frame
 set.seed(42)
 tol_i <- 0.01
 n_i <- 1000
@@ -53,7 +53,7 @@ result_i_bca <- as.vector(
     alpha = 0.05
   )
 )
-testthat::test_that("test-nBootstrap-matrix bc", {
+testthat::test_that("test-nBootstrap-data.frame bc", {
   testthat::expect_true(
     all(
       abs(
@@ -62,7 +62,7 @@ testthat::test_that("test-nBootstrap-matrix bc", {
     )
   )
 })
-testthat::test_that("test-nBootstrap-matrix bca", {
+testthat::test_that("test-nBootstrap-data.frame bca", {
   testthat::expect_true(
     all(
       abs(
@@ -105,7 +105,7 @@ result_i_bca <- as.vector(
     alpha = 0.05
   )
 )
-testthat::test_that("test-nBootstrap-matrix bc", {
+testthat::test_that("test-nBootstrap-data.frame bc", {
   testthat::expect_true(
     all(
       abs(
@@ -114,7 +114,7 @@ testthat::test_that("test-nBootstrap-matrix bc", {
     )
   )
 })
-testthat::test_that("test-nBootstrap-matrix bca", {
+testthat::test_that("test-nBootstrap-data.frame bca", {
   testthat::expect_true(
     all(
       abs(

@@ -26,9 +26,11 @@ Percentile Confidence Intervals
 }
 
 \examples{
-x <- rnorm(n = 100)
-func <- median
-thetahatstar <- thetahatstar_nb(x, func = func)
+foo <- function(x) {
+  median(rnorm(n = 100))
+}
+thetahatstar <- lapply(X = seq_len(1000), FUN = foo)
+thetahatstar <- do.call(what = "rbind", args = thetahatstar)
 
 ci_pc(thetahatstar)
 }
